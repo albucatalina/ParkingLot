@@ -4,22 +4,39 @@
 
 <t:pageTemplate pageTitle="Cars">
     <h1>Cars</h1>
-    <p class="lead">
+    <form method="POST" action="${pageContext.request.contextPath}/Cars">
         <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddCar" role="button">Add Car</a>
-    </p>
-    <c:forEach var="car" items="${cars}" varStatus="status">
+        <button class="btn btn-danger" type="submit">Delete Cars</button>
+        
+        <br>
         <div class="row">
-            <div class="col-md-4">
-                ${car.licensePlate}
+        <div class="col-md"></div>
+        <div class="col-md-3"><b>License Plate</b></div>
+        <div class="col-md-3"><b>Parking Spot</b></div>
+        <div class="col-md-3"><b>Owner</b></div>
+        <div class="col-md-2"></div>
+    </div>
+    <br>
+        <c:forEach var="car" items="${cars}" varStatus="status">
+            <div class="row">
+                <div class="col-md">
+                    <input type="checkbox" name="car_ids" value="${car.id}" />
+                </div>
+                <div class="col-md-3">
+                    ${car.licensePlate}
+                </div>
+                <div class="col-md-3">
+                    ${car.parkingSpot}
+                </div>
+                <div class="col-md-3">
+                    ${car.userName}
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/EditCar?id=${car.id}" role="button">Edit Car</a>
+                </div>
             </div>
-            <div class="col-md-4">
-                ${car.parkingSpot}
-            </div>
-            <div class="col-md-4">
-                ${car.userName}
-            </div>
-        </div>
-    </c:forEach>
-
+                <br>
+        </c:forEach>
+    </form>
     <h5>Free parking spots: ${numberOfFreeParkingSpots}</h5>
 </t:pageTemplate>

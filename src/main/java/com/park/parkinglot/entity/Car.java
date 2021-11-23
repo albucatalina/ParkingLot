@@ -29,7 +29,7 @@ public class Car implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    private String licentePlate;
+    private String licensePlate;
     private String parkingSpot;
     
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,15 +43,20 @@ public class Car implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
     
-    public String getLicentePlate() {
-        return licentePlate;
-    }
 
-    public void setLicentePlate(String licentePlate) {
-        this.licentePlate = licentePlate;
-    }
-
+    
+    
+    
     public String getParkingSpot() {
         return parkingSpot;
     }

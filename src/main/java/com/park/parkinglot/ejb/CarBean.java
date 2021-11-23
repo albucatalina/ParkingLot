@@ -55,7 +55,7 @@ public class CarBean {
         List<CarDetails> detailsList = new ArrayList<>();
         for(Car car : cars){
             CarDetails carDetails = new CarDetails(car.getId(),
-                    car.getLicentePlate(),
+                    car.getLicensePlate(),
                     car.getParkingSpot(),
                     car.getUser().getUsername());
             detailsList.add(carDetails);
